@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="pragma" content="no-cache">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/js/lib/mobiscroll/js/mobiscroll.custom-2.17.0.min.js">
+    <title>设备月试剂使用量排名</title>
+</head>
+<style type="text/css">
+    body{
+        background-color:#EDEDED
+    }
+    .headdate{
+        text-align:center;
+        line-height: 3;
+        background-color: #fff;
+        position: relative;
+    }
+    .datechose{
+        border:none;
+        width:100px;
+        height:2em;
+        text-align: center;
+        background-color:transparent;
+        -webkit-appearance:none;
+    }
+    .datechose:after{
+        content:" "
+    }
+    .triangle-left {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-right: 8px solid #105CA8;
+        border-bottom: 8px solid transparent;
+        vertical-align: middle;
+        margin-right:20px
+    }
+
+    .triangle-right {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-left: 8px solid #105CA8;
+        border-bottom: 8px solid transparent;
+        vertical-align: middle;
+        margin-left:20px;
+    }
+    .circleb{
+        display: inline-block;
+        width: 0;
+        border-radius: 100%;
+        border:3px solid #105CA8;
+        margin-right: 3px;
+    }
+    .hlist >.firstcolor{
+        border-top-color:#F54C10;
+    }
+
+    .hlist >.secondcolor{
+        border-top-color: #FCA739;
+    }
+
+    .hlist >.thirdcolor{
+        border-top-color: #60CD1E;
+    }
+    .li-top>.firstcolor{
+        background-color:#F54C10 ;
+    }
+    .li-top>.secondcolor{
+        background-color:#FCA739 ;
+    }
+    .li-top>.thirdcolor{
+        background-color: #60CD1E ;
+    }
+
+    .hlist{
+        background-color: #fff;
+    }
+    .hlist ul{
+        border-top:2px solid #8BC0FF;
+    }
+    .hlist ul li{
+        padding:0 10px;
+    }
+    .hlist .li-top{
+        font-size:1.1em;
+        line-height: 2;
+        border-bottom:1px solid #EDEDED;
+    }
+
+    .hlist .li-center{
+        line-height: 2;
+    }
+    .hlist .li-center span:nth-last-child(1){
+        float: right;
+    }
+    .hlist .li-bottom{
+        line-height: 2;
+    }
+    .hlist .li-bottom span:nth-last-child(1){
+        float: right;
+    }
+    .circletop{
+        width: 14px;
+        height: 14px;
+        font-size:0.6rem;
+        border-radius: 100%;
+        color: #fff;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 14px;
+        text-align: center;
+    }
+
+    .sortbtn{
+        width: 45px;
+        background: #105CA8;
+        color:#fff;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        right: 0;
+        position: absolute;
+        height: 2em;
+        line-height: 2em;
+        border-radius: 5px;
+        font-size: 1rem
+    }
+    .nodata img {
+        display: block;
+        margin: auto;
+        margin-top: 50%;
+        margin-bottom: 20px;
+        width: 100px;
+    }
+
+    .nodata {
+        text-align: center;
+    }
+    .dropdown{
+        width: 112px;
+        -webkit-box-shadow: 0px 14px 33px -9px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 14px 33px -9px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 14px 33px -9px rgba(0, 0, 0, 0.75);
+        z-index: 1002;
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 5px;
+        text-align: center;
+        background: rgba(0,0,0,0.7);
+        padding: 8px 5px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-transition: 0s;
+        -o-transition: 0s;
+        transition: 0s;
+        line-height: 28px;
+        color: white;
+        font-size: 14px;
+    }
+    .dropdown li.active{
+        color: #8BC0FF;
+    }
+    .dropdown li{
+        border-bottom: 0.5px solid #e5e5e5;
+    }
+    .dropdown li:last-child{
+        border: 0;
+    }
+    .arr{
+        border: 10px solid transparent;
+        width: 0;
+        height: 0;
+        border-bottom-color: rgba(0,0,0,0.7);
+        position: absolute;
+        top: -20px;
+        right: 20px;
+    }
+    [v-cloak]{
+        display: none;
+    }
+</style>
+<body>
+<div id="vue" v-cloak>
+</div>
+</body>
+</html>

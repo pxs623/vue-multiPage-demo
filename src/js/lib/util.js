@@ -1,5 +1,8 @@
+/*
+ *工具类
+ */
 var serverUrl='https://www.yjk2020.com/'
-function getParameter(name) {        // 可以处理中文字符
+let getParameter =function(name) {        // 可以处理中文字符
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
     if (r != null)
@@ -24,7 +27,7 @@ function showCountDown(date, divname) {
         cc.innerHTML = day1 + "天" + hour + "小时" + minute + "分" + second + "秒";
     }
 }
-function basePath() {
+let basePath= function() {
     //获取当前网址，如： http://localhost:8080/ems/Pages/Basic/Person.jsp
     var curWwwPath = window.document.location.href;
     //获取主机地址之后的目录，如： /ems/Pages/Basic/Person.jsp
@@ -39,7 +42,7 @@ function basePath() {
     return basePath;
 };
 
-function UUID() {
+let UUID =function() {
     var s = [];
     var hexDigits = "0123456789abcdef";
     for (var i = 0; i < 36; i++) {
@@ -95,3 +98,4 @@ Date.prototype.beforeAfterMonth = function (date, beforeOrAfter) {
     }
     return date;
 }
+module.exports= {getParameter,basePath,UUID}

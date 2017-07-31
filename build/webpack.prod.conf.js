@@ -5,10 +5,14 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var utils = require('./utils')
 var config = require('../config')
 var baseWebpackConfig = require('./webpack.base.conf')
+const vuxLoader = require('vux-loader')
+const webpackConfig = baseWebpackConfig // 原来的 module.exports 代码赋值给变量 webpackConfig
 var env = config.build.env;
+var newconfig= vuxLoader.merge(webpackConfig, {
+  plugins: ['vux-ui']
+})
 
-
-var webpackConfig = merge(baseWebpackConfig, {
+var prodconfig = merge(newconfig, {
     module: {
         loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
     },
@@ -51,10 +55,9 @@ var webpackConfig = merge(baseWebpackConfig, {
             minChunks: function (module, count) {
                 // any required modules inside node_modules are extracted to vendor
                 // 提取全局依赖的库（vue, jquery）
-                var jsReg = /\.js$/.test(module.resource) &&
-                    module.resource.indexOf(
-                        path.join(__dirname, '../node_modules')
-                    ) === 0;
+                console.log("module.resource"+module.resource);
+                var jsReg = /(vue|jquery|axios|vue-axios|util)\.js$/.test(module.resource);
+              console.log("jsReg"+jsReg);
 
                 // 公共UI库提提取
                 // todo 这边可进行更精确的匹配
@@ -93,4 +96,4 @@ var webpackConfig = merge(baseWebpackConfig, {
  )
  }*/
 
-module.exports = webpackConfig
+module.exports = prodconfig

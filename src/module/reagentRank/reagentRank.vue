@@ -26,19 +26,65 @@
         </div>
         <div v-if="data.noData" class="nodata" ><img src="../img/no_data.png" class="nodata"/><p>暂无数据</p></div>
     </div>-->
+        <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
+            <ul >
+                <li v-for="item in list" style="line-height: 3">{{ item }}</li>
+            </ul>
+        </mt-loadmore>
+        <ul
+                v-infinite-scroll="loadMore"
+                infinite-scroll-disabled="loading"
+                infinite-scroll-distance="10">
+            <li v-for="item in list">{{ item }}</li>
+        </ul>
+        <p v-show="loading" class="page-infinite-loading">
+            <mt-spinner type="fading-circle"></mt-spinner>
+            加载中...
+        </p>
     </div>
 </template>
 
 <script>
+
     export default {
         data () {
             return {
-                msg: ''
+                msg: '',
+                list:[1,3,3,4,5,6,5,7,7,8,9],
+              loading:false
             }
         },
       methods:{
         togglesort(){
           console.log(111)
+        },
+        loadTop() {
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.list.push('1')
+          this.$refs.loadmore.onTopLoaded();
+        },
+        loadMore() {
+          this.loading = true;
+          setTimeout(() => {
+            let last = this.list[this.list.length - 1];
+            for (let i = 1; i <= 10; i++) {
+              this.list.push(last + i);
+            }
+            this.loading = false;
+          }, 2500);
         }
       }
     }

@@ -21,6 +21,7 @@ var entries = getEntry(srcDir + '/module/**/*.js')
 
 var autoprefixerConf = autoprefixer({ browsers: ['last 2 versions'] });
 
+
 // 获取入口文件
 function getEntry (globPath) {
     var entries = {},
@@ -65,7 +66,6 @@ function createHtml () {
 
 module.exports = {
     entry: entries,
-
     output: {
         path: config.build.assetsRoot,
         publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
@@ -111,6 +111,9 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue'
             },
+          { test: /iview.src.*?js$/, loader: 'babel' },
+          { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
+
             {
                 test: /\.js$/,
                 loader: 'babel',

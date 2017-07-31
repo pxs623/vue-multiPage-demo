@@ -1,8 +1,11 @@
 import { Vue,$ } from '../../js/base'
 import tpl from './reagentRank.vue'
-import { Toast } from 'mint-ui';
+import { Toast,Loadmore,InfiniteScroll,Spinner } from 'mint-ui';
 import 'mint-ui/lib/style.css';
 import '../../js/lib/util'
+Vue.component(Loadmore.name, Loadmore);
+Vue.component(Spinner.name, Spinner);
+Vue.use(InfiniteScroll);
 localStorage.USER='{"id":"10000","name":"彭雪松","phone":"13372034425","agentType":"role_21"}'
 
 var totalPage = 1;

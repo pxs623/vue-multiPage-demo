@@ -3,14 +3,18 @@ var merge = require('webpack-merge')
 var config = require('../config')
 var utils = require('./utils')
 var baseWebpackConfig = require('./webpack.base.conf')
-
+const vuxLoader = require('vux-loader')
+const webpackConfig = baseWebpackConfig // 原来的 module.exports 代码赋值给变量 webpackConfig
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
     baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 })
 
 
-var devConf = merge(baseWebpackConfig, {
+var newconfig= vuxLoader.merge(webpackConfig, {
+  plugins: ['vux-ui']
+})
+var devConf = merge(newconfig, {
     module: {
         loaders: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
     },

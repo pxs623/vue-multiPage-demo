@@ -1,16 +1,58 @@
 <template>
     <div id="menus" style="display: none">
         <div style="text-align: center;line-height: 2;margin-top: 108px"><p>欢迎进入IPOCT监管主页</p>
-            <p>一健在手，市场无忧</p></div>
-        <div class="menubtn" id="supervise">监管</div>
+            <p>一健在手，市场无忧
+            </p></div>
+        <div class="menubtn" id="supervise">监管
+        </div>
         <a class="menubtn" href="reagentRank.html">装机</a>
+        <x-icon type="ios-ionic-outline" size="30"></x-icon>
+        <x-icon type="ios-arrow-back" size="30"></x-icon>
+        <x-icon type="ios-arrow-forward" size="30"></x-icon>
+        <x-icon type="ios-arrow-up" size="30"></x-icon>
+        <x-icon type="ios-arrow-right" size="30"></x-icon>
+        <x-icon type="ios-arrow-down" size="30"></x-icon>
+        <x-icon type="ios-arrow-left" size="30"></x-icon>
+        <x-icon type="ios-arrow-thin-up" size="30"></x-icon>
+        <x-icon type="ios-arrow-thin-right" size="30"></x-icon>
+        <x-icon type="ios-arrow-thin-down" size="30"></x-icon>
+        <x-icon type="ios-arrow-thin-left" size="30"></x-icon>
+        <x-icon type="ios-circle-filled" size="30"></x-icon>
+        <x-icon type="ios-circle-outline" size="30"></x-icon>
+        <x-icon type="ios-checkmark-empty" size="30"></x-icon>
+        <x-icon type="ios-checkmark-outline" size="30"></x-icon>
+        <x-icon type="ios-checkmark" size="30"></x-icon>
+        <x-icon type="ios-plus-empty" size="30"></x-icon>
+        <x-icon type="ios-plus-outline" size="30"></x-icon>
+        <x-icon type="ios-plus" size="30"></x-icon>
+        <x-icon type="ios-close-empty" size="30"></x-icon>
+        <x-icon type="ios-close-outline" size="30"></x-icon>
+        <x-icon type="ios-close" size="30"></x-icon>
+        <x-icon type="ios-minus-empty" size="30"></x-icon>
+        <x-icon type="ios-minus-outline" size="30"></x-icon>
+        <x-icon type="ios-minus" size="30"></x-icon>
+        <x-icon type="ios-information-empty" size="30"></x-icon>
+        <x-icon type="ios-information-outline" size="30"></x-icon>
+        <x-icon type="ios-information" size="30"></x-icon>
+        <x-icon type="ios-help-empty" size="30"></x-icon>
+        <x-icon type="ios-help-outline" size="30"></x-icon>
+        <x-icon type="ios-help" size="30"></x-icon>
+        <x-icon type="ios-search" size="30"></x-icon>
+        <x-icon type="ios-search-strong" size="30"></x-icon>
+        <x-icon type="ios-star" size="30"></x-icon>
+        <x-icon type="ios-star-half" size="30"></x-icon>
+        <x-icon type="ios-star-outline" size="30"></x-icon>
+        <x-icon type="ios-heart" size="30"></x-icon>
+        <x-icon type="ios-heart-outline" size="30"></x-icon>
     </div>
 </template>
 
 <script>
-  import { Toast } from 'mint-ui';
-
+  import { md5 } from 'vux'
   export default {
+    components: {
+
+    },
     data () {
       return {
         msg: '',
@@ -18,11 +60,12 @@
       }
     },
     mounted () {
-      this.axios.get('https://cnodejs.org/api/v1/topics')
-        .then(result => {result.data.data
+      this.axios.get('http://www.yjk2020.com/' + 'ec-web-api/agent/admc/gdus')
+        .then(result => {
         console.log(result.data.data)
         })
-      Toast('toast')
+      console.log(md5('VUX'))
+      this.$vux.toast.text('hello', 'top')
     }
   }
 </script>
